@@ -8,6 +8,7 @@ public class GradeTest {
 
   @Test
   public void getScore() {
+    // Test 2
     Grade grade = new Grade();
     assertEquals(6, grade.getScore());
   }

@@ -22,4 +22,8 @@ public class Student {
   public void addGrade(Grade grade) {
     grades.add(grade);
   }
+
+  public void registerModule(Module module) {
+    // To be implemented
+  }
 }
