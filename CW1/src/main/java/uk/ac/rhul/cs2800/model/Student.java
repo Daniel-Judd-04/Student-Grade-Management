@@ -2,6 +2,7 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
 
 public class Student {
 
@@ -13,7 +14,12 @@ public class Student {
     this.registrations = new ArrayList<>();
   }
 
-  public float computeAverage() {
+  public float computeAverage() throws NoGradeAvailableException {
+    if (grades.isEmpty()) {
+      throw new NoGradeAvailableException(
+          "Can not compute average grade for student, as grades is empty.");
+    }
+
     int sum = 0;
     for (Grade grade : grades) {
       sum += grade.getScore();
