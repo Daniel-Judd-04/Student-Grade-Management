@@ -6,9 +6,11 @@ import java.util.List;
 public class Student {
 
   List<Grade> grades;
+  List<Registration> registrations;
 
   public Student() {
     this.grades = new ArrayList<>();
+    this.registrations = new ArrayList<>();
   }
 
   public float computeAverage() {
@@ -24,6 +26,15 @@ public class Student {
   }
 
   public void registerModule(Module module) {
-    // To be implemented
+    Registration registration = new Registration(module);
+    registrations.add(registration);
+  }
+
+  public List<Registration> getRegistrations() {
+    return registrations;
+  }
+
+  public Registration getRegistration(int index) {
+    return registrations.get(index);
   }
 }

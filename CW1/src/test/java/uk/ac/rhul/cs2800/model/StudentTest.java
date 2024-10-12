@@ -21,5 +21,7 @@ public class StudentTest {
     Student student = new Student();
     Module module = new Module();
     student.registerModule(module);
+    assertEquals(1, student.getRegistrations().size());
+    assertEquals(module, student.getRegistration(0).getModule());
   }
 }
