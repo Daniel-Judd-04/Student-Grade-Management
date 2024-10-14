@@ -14,6 +14,10 @@ public class Student {
     this.registrations = new ArrayList<>();
   }
 
+  public void addGrade(Grade grade) {
+    grades.add(grade);
+  }
+
   public float computeAverage() throws NoGradeAvailableException {
     if (grades.isEmpty()) {
       throw new NoGradeAvailableException(
@@ -25,10 +29,6 @@ public class Student {
       sum += grade.getScore();
     }
     return (float) sum / grades.size();
-  }
-
-  public void addGrade(Grade grade) {
-    grades.add(grade);
   }
 
   public void registerModule(Module module) {

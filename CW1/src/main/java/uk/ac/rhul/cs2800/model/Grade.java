@@ -4,10 +4,6 @@ public class Grade {
 
   private int score;
 
-  public Grade() {
-
-  }
-
   public Grade(int score) {
     this.score = score;
   }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
 
 public class StudentTest {
-
+  
   @Test
   public void computeAverageTest() throws NoGradeAvailableException {
     // Test 1
