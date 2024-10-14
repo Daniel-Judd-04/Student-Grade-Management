@@ -1,0 +1,50 @@
+stages:
+  - build
+  - test
+  - jacoco
+  - checkstyle
+  - spotbugs
+
+cache:
+  paths:
+    - .m2/repository
+
+build:
+  stage: build
+  script:
+    - cd CW1
+    - mvn compile
+    - cd ../CW2
+    - mvn compile
+
+test:
+  stage: test
+  script:
+    - cd CW1
+    - mvn test
+    - cd ../CW2
+    - mvn test
+
+jacoco:
+  stage: jacoco
+  script:
+    - cd CW1
+    - mvn verify
+    - cd ../CW2
+    - mvn verify
+
+checkstyle:
+  stage: checkstyle
+  script:
+    - cd CW1
+    - mvn checkstyle:check
+    - cd ../CW2
+    - mvn checkstyle:check
+
+spotbugs:
+  stage: spotbugs
+  script:
+    - cd CW1
+    - mvn spotbugs:check
+    - cd ../CW2
+    - mvn spotbugs:check
