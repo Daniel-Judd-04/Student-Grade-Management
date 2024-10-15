@@ -1,5 +1,9 @@
 package uk.ac.rhul.cs2800.model;
 
+/**
+ * A class to store a registrations associated module.
+ * <p>This class provides a method to retrieve the module.</p>
+ */
 public class Registration {
 
   private Module module;

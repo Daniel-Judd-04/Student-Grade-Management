@@ -1,5 +1,9 @@
 package uk.ac.rhul.cs2800.model;
 
+/**
+ * A class which stores a modules code, name and whether it is mandatory non-condonable.
+ * <p>This class provides methods to retrieve its properties.</p>
+ */
 public class Module {
 
   private String code;
@@ -7,9 +11,16 @@ public class Module {
   private boolean mnc;
 
   public Module() {
-    
+
   }
 
+  /**
+   * Creates a Module instance with a given code, name and mnc.
+   *
+   * @param code The unique code of the module.
+   * @param name The name of the module.
+   * @param mnc  Whether the module is mandatory non-condonable.
+   */
   public Module(String code, String name, boolean mnc) {
     this.code = code;
     this.name = name;

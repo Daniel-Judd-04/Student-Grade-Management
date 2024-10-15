@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
 
+/**
+ * A class which stores grades and module registrations for a student.
+ * <p>This class provides methods to add or retrieve grades and registrations.
+ * There is also a method to compute the average grade of the student.</p>
+ */
 public class Student {
 
   List<Grade> grades;
@@ -18,6 +23,12 @@ public class Student {
     grades.add(grade);
   }
 
+  /**
+   * Computes the average grade for the student using the scores.
+   *
+   * @return The average grade as a float.
+   * @throws NoGradeAvailableException If the student has no recorded grades.
+   */
   public float computeAverage() throws NoGradeAvailableException {
     if (grades.isEmpty()) {
       throw new NoGradeAvailableException(
