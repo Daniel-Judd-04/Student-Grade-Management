@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
 
 public class StudentTest {
-  
+
   @Test
   public void computeAverageTest() throws NoGradeAvailableException {
     // Test 1
@@ -32,5 +32,23 @@ public class StudentTest {
     // Test 6
     Student student = new Student();
     assertThrows(NoGradeAvailableException.class, student::computeAverage);
+  }
+
+  @Test
+  public void constructStudentFieldsTest() {
+    // Test 9
+    long id = 1234L;
+    String firstName = "John";
+    String lastName = "Smith";
+    String username = "john_smith";
+    String email = "john.smith@gmail.com";
+
+    Student student = new Student(id, firstName, lastName, username, email);
+
+    assertEquals(id, student.getId());
+    assertEquals(firstName, student.getFirstName());
+    assertEquals(lastName, student.getLastName());
+    assertEquals(username, student.getUsername());
+    assertEquals(email, student.getEmail());
   }
 }
