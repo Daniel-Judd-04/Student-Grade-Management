@@ -3,11 +3,14 @@ package uk.ac.rhul.cs2800.model;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
+import uk.ac.rhul.cs2800.exceptions.NoRegistrationException;
 
 /**
  * A class which stores grades and module registrations for a student.
- * <p>This class provides methods to add or retrieve grades and registrations.
- * There is also a method to compute the average grade of the student.</p>
+ * <p>
+ * This class provides methods to add or retrieve grades and registrations. There is also a method
+ * to compute the average grade of the student.
+ * </p>
  */
 public class Student {
 
@@ -98,5 +101,35 @@ public class Student {
 
   public Registration getRegistration(int index) {
     return registrations.get(index);
+  }
+
+  /**
+   * Gets the grade associated with the given module.
+   * <p>First checks if the module is registered with the student. Then attempts to find an
+   * associated grade with the module.</p>
+   *
+   * @param module The module to be searched.
+   * @return The grade associated with the given module.
+   * @throws NoGradeAvailableException Thrown if there is no available grade for the given module.
+   * @throws NoRegistrationException   Thrown if the given module is unregistered.
+   */
+  public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
+    boolean unregisteredModule = true;
+    for (Registration registration : registrations) {
+      if (registration.getModule().equals(module)) {
+        unregisteredModule = false;
+        break;
+      }
+    }
+    if (unregisteredModule) {
+      throw new NoRegistrationException("Can not access grades for unregistered modules.");
+    }
+
+    for (Grade grade : grades) {
+      if (grade.getModule().equals(module)) {
+        return grade;
+      }
+    }
+    throw new NoGradeAvailableException("No Grade available for specified module.");
   }
 }
