@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
+import uk.ac.rhul.cs2800.exceptions.NoRegistrationException;
 
 public class StudentTest {
 
@@ -50,5 +51,39 @@ public class StudentTest {
     assertEquals(lastName, student.getLastName());
     assertEquals(username, student.getUsername());
     assertEquals(email, student.getEmail());
+  }
+
+  @Test
+  public void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
+    // Test 10
+    Module module = new Module();
+    Grade grade = new Grade(module);
+    Student student = new Student();
+    student.registerModule(module);
+    student.addGrade(grade);
+
+    assertEquals(grade, student.getGrade(module));
+  }
+
+  @Test
+  public void getGradeNoGradeTest() {
+    // Test 12
+    Module module = new Module();
+    Student student = new Student();
+    student.registerModule(module);
+
+    assertThrows(NoGradeAvailableException.class, () -> student.getGrade(module));
+  }
+
+  @Test
+  public void getGradeNoRegistrationTest() {
+    // Test 13
+    Module module = new Module();
+    Grade grade = new Grade(module);
+    Student student = new Student();
+    student.addGrade(grade);
+
+    assertThrows(NoRegistrationException.class, () -> student.getGrade(module));
+
   }
 }
