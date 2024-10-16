@@ -13,4 +13,12 @@ public class GradeTest {
     assertEquals(6, grade.getScore());
   }
 
+  @Test
+  public void getModuleTest() {
+    // Test 11
+    Module module = new Module();
+    Grade grade = new Grade(module);
+    assertEquals(module, grade.getModule());
+  }
+
 }

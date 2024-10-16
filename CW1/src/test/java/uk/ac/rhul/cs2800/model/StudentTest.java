@@ -86,4 +86,26 @@ public class StudentTest {
     assertThrows(NoRegistrationException.class, () -> student.getGrade(module));
 
   }
+
+  @Test
+  public void getGradeWithMultipleGradesAndModulesTest()
+      throws NoRegistrationException, NoGradeAvailableException {
+    // Test 14
+    Module module1 = new Module("CS2800", "Software Engineering", true);
+    Module module2 = new Module("CS2855", "Databases", true);
+
+    Grade grade1 = new Grade(module1);
+    Grade grade2 = new Grade(module2);
+
+    Student student = new Student();
+
+    student.registerModule(module1);
+    student.registerModule(module2);
+
+    student.addGrade(grade1);
+    student.addGrade(grade2);
+
+    assertEquals(grade1, student.getGrade(module1));
+    assertEquals(grade2, student.getGrade(module2));
+  }
 }
