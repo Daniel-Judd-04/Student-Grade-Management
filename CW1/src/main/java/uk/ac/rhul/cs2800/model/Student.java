@@ -114,22 +114,24 @@ public class Student {
    * @throws NoRegistrationException   Thrown if the given module is unregistered.
    */
   public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
-    boolean unregisteredModule = true;
-    for (Registration registration : registrations) {
-      if (registration.getModule().equals(module)) {
-        unregisteredModule = false;
-        break;
+    if (isRegistered(module)) {
+      for (Grade grade : grades) {
+        if (grade.getModule().equals(module)) {
+          return grade;
+        }
       }
-    }
-    if (unregisteredModule) {
+      throw new NoGradeAvailableException("No Grade available for specified module.");
+    } else {
       throw new NoRegistrationException("Can not access grades for unregistered modules.");
     }
+  }
 
-    for (Grade grade : grades) {
-      if (grade.getModule().equals(module)) {
-        return grade;
+  private boolean isRegistered(Module module) {
+    for (Registration registration : registrations) {
+      if (registration.getModule().equals(module)) {
+        return true;
       }
     }
-    throw new NoGradeAvailableException("No Grade available for specified module.");
+    return false;
   }
 }
