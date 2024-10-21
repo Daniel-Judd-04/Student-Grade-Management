@@ -8,6 +8,10 @@ public class Registration {
 
   private Module module;
 
+  public Registration() {
+    
+  }
+
   public Registration(Module module) {
     this.module = module;
   }
@@ -16,4 +20,7 @@ public class Registration {
     return module;
   }
 
+  public void setModule(Module module) {
+    this.module = module;
+  }
 }
