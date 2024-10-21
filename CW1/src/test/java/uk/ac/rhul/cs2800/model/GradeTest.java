@@ -2,23 +2,32 @@ package uk.ac.rhul.cs2800.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GradeTest {
 
-  @Test
-  public void getScoreTest() {
-    // Test 2
-    Grade grade = new Grade(6);
-    assertEquals(6, grade.getScore());
+  private Module module;
+  private Grade grade;
+
+  @BeforeEach
+  public void setUp() {
+    grade = new Grade();
+    module = new Module();
   }
 
   @Test
-  public void getModuleTest() {
+  public void getAndSetScoreTest() {
+    // Test 2
+    int score = 6;
+    grade.setScore(score);
+    assertEquals(score, grade.getScore());
+  }
+
+  @Test
+  public void getAndSetModuleTest() {
     // Test 11
-    Module module = new Module();
-    Grade grade = new Grade(module);
+    grade.setModule(module);
     assertEquals(module, grade.getModule());
   }
-
 }

@@ -9,11 +9,12 @@ public class Grade {
   private int score;
   private Module module;
 
-  public Grade(int score) {
-    this.score = score;
+  public Grade() {
+
   }
 
-  public Grade(Module module) {
+  public Grade(int score, Module module) {
+    this.score = score;
     this.module = module;
   }
 
@@ -21,7 +22,15 @@ public class Grade {
     return score;
   }
 
+  public void setScore(int score) {
+    this.score = score;
+  }
+
   public Module getModule() {
     return module;
+  }
+
+  public void setModule(Module module) {
+    this.module = module;
   }
 }
