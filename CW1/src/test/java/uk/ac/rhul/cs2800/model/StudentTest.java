@@ -17,12 +17,12 @@ public class StudentTest {
   private Grade grade2;
 
   @BeforeEach
-  public void setup() {
+  public void setUp() {
     student = new Student();
     module1 = new Module("CS2800", "Software Engineering", true);
     module2 = new Module("CS2855", "Databases", true);
-    grade1 = new Grade(module1, 5);
-    grade2 = new Grade(module2, 3);
+    grade1 = new Grade(5, module1);
+    grade2 = new Grade(3, module2);
   }
 
 //  Qs:
@@ -55,7 +55,7 @@ public class StudentTest {
   }
 
   @Test
-  public void constructFieldsTest() {
+  public void gettersAndSettersTest() {
     // Test 9
     long id = 1234L;
     String firstName = "John";
@@ -63,7 +63,11 @@ public class StudentTest {
     String username = "john_smith";
     String email = "john.smith@gmail.com";
 
-    Student student = new Student(id, firstName, lastName, username, email);
+    student.setId(id);
+    student.setFirstName(firstName);
+    student.setLastName(lastName);
+    student.setUsername(username);
+    student.setEmail(email);
 
     assertEquals(id, student.getId());
     assertEquals(firstName, student.getFirstName());
@@ -113,10 +117,19 @@ public class StudentTest {
   }
 
   @Test
-  public void setFieldsTest() {
-    // Test 15
-    student.setId(1234);
-    assertEquals(1234, student.getId());
-    // ... (implement other setters and getter tests)
+  public void constructorTest() {
+    long id = 1234L;
+    String firstName = "John";
+    String lastName = "Smith";
+    String username = "john_smith";
+    String email = "john.smith@gmail.com";
+
+    Student student1 = new Student(id, firstName, lastName, username, email);
+
+    assertEquals(id, student1.getId());
+    assertEquals(firstName, student1.getFirstName());
+    assertEquals(lastName, student1.getLastName());
+    assertEquals(username, student1.getUsername());
+    assertEquals(email, student1.getEmail());
   }
 }
