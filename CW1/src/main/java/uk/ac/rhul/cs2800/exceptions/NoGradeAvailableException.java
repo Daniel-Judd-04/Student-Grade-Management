@@ -1,8 +1,11 @@
 package uk.ac.rhul.cs2800.exceptions;
 
 /**
- * A custom Exception class which is thrown when a student has no grades or that there is no grade
- * for a specific module.
+ * A custom {@link Exception} class which is thrown when a student has no
+ * {@link uk.ac.rhul.cs2800.model.Grade Grade} or when there is no
+ * {@link uk.ac.rhul.cs2800.model.Grade Grade} for a {@link uk.ac.rhul.cs2800.model.Module Module}.
+ *
+ * @author Daniel Judd
  */
 public class NoGradeAvailableException extends Exception {
 
