@@ -3,6 +3,8 @@ package uk.ac.rhul.cs2800.model;
 /**
  * A class which stores a grades score as an int.
  * <p>This class provides a method to retrieve the score.</p>
+ *
+ * @author Daniel Judd
  */
 public class Grade {
 
@@ -26,6 +28,9 @@ public class Grade {
     this.score = score;
   }
 
+  //  uk.ac.rhul.cs2800.model.Grade.getModule()
+  //  may expose internal representation by returning Grade.module (Medium)
+  // Do I need to worry about these spotbugs?
   public Module getModule() {
     return module;
   }

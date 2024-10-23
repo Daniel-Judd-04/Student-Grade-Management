@@ -3,6 +3,8 @@ package uk.ac.rhul.cs2800.model;
 /**
  * A class which stores a modules code, name and whether it is mandatory non-condonable.
  * <p>This class provides methods to retrieve its properties.</p>
+ *
+ * @author Daniel Judd
  */
 public class Module {
 

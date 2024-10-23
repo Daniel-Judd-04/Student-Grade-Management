@@ -11,6 +11,8 @@ import uk.ac.rhul.cs2800.exceptions.NoRegistrationException;
  * This class provides methods to add or retrieve grades and registrations. There is also a method
  * to compute the average grade of the student.
  * </p>
+ *
+ * @author Daniel Judd
  */
 public class Student {
 
