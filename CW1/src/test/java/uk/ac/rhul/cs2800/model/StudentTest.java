@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exceptions.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exceptions.NoRegistrationException;
 
+/**
+ * Tests the attributes and methods of the {@link Student} class.
+ */
 public class StudentTest {
 
   private Student student;
@@ -16,6 +19,12 @@ public class StudentTest {
   private Grade grade1;
   private Grade grade2;
 
+  /**
+   * Initialises relevant objects required before each test.
+   * <p>Helps to reduce repetitive code between tests and increases consistency. Creates a
+   * {@link Student},
+   * two {@link Module}s and two {@link Grade}s.</p>
+   */
   @BeforeEach
   public void setUp() {
     student = new Student();
@@ -25,12 +34,8 @@ public class StudentTest {
     grade2 = new Grade(3, module2);
   }
 
-//  Qs:
-//    // Is this allowed?
-//    // Can I refactor my tests to make them more concise and efficient (e.g. combine to gettersAndSettersTest())
   // Does computeAverageTest need to throw NoRegistrationException?
   // Will I be penalised for back tracking commits or too many commits? Do I need to use Issues?
-//  }
 
   @Test
   public void computeAverageTest() throws NoGradeAvailableException {
@@ -56,7 +61,7 @@ public class StudentTest {
 
   @Test
   public void gettersAndSettersTest() {
-    // Test 9
+    // Test 7
     long id = 1234L;
     String firstName = "John";
     String lastName = "Smith";
@@ -78,7 +83,7 @@ public class StudentTest {
 
   @Test
   public void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
-    // Test 10
+    // Test 8
     student.registerModule(module1);
     student.addGrade(grade1);
 
@@ -87,7 +92,7 @@ public class StudentTest {
 
   @Test
   public void getGradeNoGradeTest() {
-    // Test 12
+    // Test 10
     student.registerModule(module1);
 
     assertThrows(NoGradeAvailableException.class, () -> student.getGrade(module1));
@@ -95,7 +100,7 @@ public class StudentTest {
 
   @Test
   public void getGradeNoRegistrationTest() {
-    // Test 13
+    // Test 11
     student.addGrade(grade1);
 
     assertThrows(NoRegistrationException.class, () -> student.getGrade(module1));
@@ -105,7 +110,7 @@ public class StudentTest {
   @Test
   public void getGradeWithMultipleGradesAndModulesTest()
       throws NoRegistrationException, NoGradeAvailableException {
-    // Test 14
+    // Test 12
     student.registerModule(module1);
     student.registerModule(module2);
 
@@ -118,6 +123,7 @@ public class StudentTest {
 
   @Test
   public void constructorTest() {
+    // Test 13
     long id = 1234L;
     String firstName = "John";
     String lastName = "Smith";
